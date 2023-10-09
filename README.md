@@ -1,7 +1,8 @@
 # tp
 contador de personas
+## diagrama de estados y transiciones
 ![diagrama de estados y transiciones tp  de info 2](https://github.com/juanalain97/tp/assets/145404492/0972af38-20ed-4af5-ab94-f5802d366f13)
-## funcionamiento teorico del contador
+### funcionamiento teorico del contador
 Vamos a describir el funcionamiento teórico de un contador de personas con sensores infrarrojos en un banco con una capacidad máxima de 30 personas:
 1.	Sensores infrarrojos: El sistema está equipado con sensores infrarrojos que emiten un haz de luz infrarroja en una zona específica, por ejemplo, cerca de la puerta de entrada o salida del banco. Estos sensores son capaces de detectar cuando una persona cruza el haz de luz infrarroja.
 2.	Configuración de límites: Antes de utilizar el contador de personas, se configura un límite máximo de capacidad, en este caso, será de 30 personas. Este valor se establece como la capacidad máxima permitida en el banco para garantizar el distanciamiento social y por razones de seguridad.
