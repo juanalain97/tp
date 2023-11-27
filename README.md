@@ -15,3 +15,4 @@ Vamos a describir el funcionamiento teórico de un contador de personas con sens
 9.	Limitaciones: no se podrá ingresar y salir al mismo tiempo, para q se respete esto, un personal de seguridad estará durante la jornada laboral del banco en la puerta  cumpliendo q se cumpla lo antes mencionado. 
 ![image](https://github.com/juanalain97/tp/assets/145404492/5db2987f-ba25-458a-a98e-e2f7b144b168)
 El límite máximo permitido dentro del banco es de 30 personas                                                                                                                
+![image](https://github.com/juanalain97/tp/assets/145404492/d844c3b4-a777-4150-9e4b-c76d44eca5eb)
