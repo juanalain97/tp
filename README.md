@@ -16,3 +16,4 @@ Vamos a describir el funcionamiento teórico de un contador de personas con sens
 ![image](https://github.com/juanalain97/tp/assets/145404492/5db2987f-ba25-458a-a98e-e2f7b144b168)
 El límite máximo permitido dentro del banco es de 30 personas                                                                                                                
 ![image](https://github.com/juanalain97/tp/assets/145404492/d844c3b4-a777-4150-9e4b-c76d44eca5eb)
+El límite máximo permitido dentro del banco es de 30 personas                                                                                                                
