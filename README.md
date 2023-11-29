@@ -1,6 +1,9 @@
 # tp
 contador de personas
 ## diagrama de estados y transiciones
+                                                                                                                     
+      ![diagrama de estados y transiciones tp  de info 2](https://github.com/juanalain97/tp/assets/145404492/db5b3c8c-7301-4cb2-ac6b-a87f7f5de32f)
+                                                                                                         
 
 ### funcionamiento teorico del contador
 Vamos a describir el funcionamiento teórico de un contador de personas con sensores infrarrojos en un banco con una capacidad máxima de 30 personas:
