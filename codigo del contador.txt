@@ -63,7 +63,7 @@ int main() {
         }
     }
 
-    printf("Gracias por visitar el banco. ¡Hasta luego!\n");
+    printf("Gracias por visitar el banco. Hasta luego\n");
 
     return 0;
 }
