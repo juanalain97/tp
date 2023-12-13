@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include conf.h
-// main con switch case a funciones de estado
+
 int main() {
     int contadorPersonas = 0;
     EstadoBanco estadoActual = DISPONIBLE;
