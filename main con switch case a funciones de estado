@@ -20,7 +20,7 @@ int main() {
                 estadoActual = estadoNoDisponible(contadorPersonas);
                 break;
 
-            // Otros casos según sea necesario
+            // Otros casos segÃºn sea necesario
 
             default:
                 break;
@@ -28,7 +28,7 @@ int main() {
 
         // Simular la entrada/salida de personas 
         char accion;
-        printf("¿Entra (I) o sale (S) una persona? (Presione 'Q' para salir): ");
+        printf("Â¿Entra (I) o sale (S) una persona? (Presione 'Q' para salir): ");
         scanf(" %c", &accion);
 
         if (accion == 'Q' || accion == 'q') {
@@ -37,7 +37,7 @@ int main() {
             if (contadorPersonas < 30) {
                 contadorPersonas++;
             } else {
-                printf("El banco está lleno, no se pueden agregar más personas.\n");
+                printf("El banco estÃ¡ lleno, no se pueden agregar mÃ¡s personas.\n");
             }
         } else if (accion == 'S' || accion == 's') {
             if (contadorPersonas > 0) {
@@ -48,7 +48,7 @@ int main() {
         }
     }
 
-    printf("Gracias por visitar el banco. ¡Hasta luego!\n");
+    printf("Gracias por visitar el banco. Â¡Hasta luego!\n");
 
     return 0;
 }
