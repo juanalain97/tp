@@ -16,8 +16,37 @@ Vamos a describir el funcionamiento teórico de un contador de personas con sens
 7.	Mantenimiento y ajustes: El contador de personas con sensores infrarrojos debe ser mantenido regularmente para asegurarse de que los sensores estén funcionando correctamente. Además, es posible ajustar el límite de capacidad máxima según las necesidades cambiantes del banco.
 8.	Se usaran 2 sensores para diferenciar, uno sumara y el otro restara en el contador, el primer sensor estará entre la puerta del banco y la salida a la calle, cuando esta se active, sumara el contador en 1 unidad y se desactivara el otro sensor q esta entre la puerta y el interior del banco,  caso contrario cuando una persona del interior salga se activara el sensor q resta y se desactivara el otro sensor.
 9.	Limitaciones: no se podrá ingresar y salir al mismo tiempo, para q se respete esto, un personal de seguridad estará durante la jornada laboral del banco en la puerta  cumpliendo q se cumpla lo antes mencionado. 
+# conf.h
+#ifndef conf_H
+#define conf_H
+
+#include <avr/io.h>
+
+typedef enum {
+    DISPONIBLE,
+    NO_DISPONIBLE
+} EstadoBanco;
+
+void initMicro();
+EstadoBanco estadoDisponible(int contadorPersonas);
+EstadoBanco estadoNoDisponible(int contadorPersonas);
+
+#endif
 
 
+// Definiciones del puerto para el rele
+#define RELE_PORT avr_GPIO_C
+#define RELE_PIN avr_GPIO_PIN_0
+#define RELE avr_GPIOC_OUT_0
+
+// Definiciones de puertos para los pines de sensores
+#define SENSOR_ENTRADA_PORT avr_GPIO_C
+#define SENSOR_ENTRADA_PIN avr_GPIO_PIN_1
+#define LEER_SENSOR_ENTRADA avr_gpio_read_pin(SENSOR_ENTRADA_PORT, SENSOR_ENTRADA_PIN)
+
+#define SENSOR_SALIDA_PORT avr_GPIO_C
+#define SENSOR_SALIDA_PIN avr_GPIO_PIN_2
+#define LEER_SENSOR_SALIDA avr_gpio_read_pin(SENSOR_SALIDA_PORT, SENSOR_SALIDA_PIN)
 
 
 
