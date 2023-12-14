@@ -1,43 +1,63 @@
-#include <avr/io.h>
-#include <util/delay.h>
+#include <stdio.h>
 #include "conf.h"
+#include "estados.h"
+void initMicro() {
+    // Configurar pines para el rele y sensores
+    avr_gpio_configure_pin(RELE_PORT, RELE_PIN, avr_GPIO_MODE_OUTPUT);
+    avr_gpio_configure_pin(SENSOR_ENTRADA_PORT, SENSOR_ENTRADA_PIN, avr_GPIO_MODE_INPUT);
+    avr_gpio_configure_pin(SENSOR_SALIDA_PORT, SENSOR_SALIDA_PIN, avr_GPIO_MODE_INPUT);
+}
+// FunciÃ³n para leer los sensores
+int leerSensores() {
+    // Leer los sensores de entrada y salida
+    int entrada = avr_gpio_read_pin(SENSOR_ENTRADA_PORT, SENSOR_ENTRADA_PIN);
+    int salida = avr_gpio_read_pin(SENSOR_SALIDA_PORT, SENSOR_SALIDA_PIN);
+
+    // Devolver el estado combinado de los sensores
+    return (entrada << 1) | salida;
+}
 
 int main() {
-    // Inicializar el microcontrolador
+    // ConfiguraciÃ³n del microcontrolador
     initMicro();
 
     int contadorPersonas = 0;
     EstadoBanco estadoActual = DISPONIBLE;
 
+    // Vector de punteros a funciones de estado
+    EstadoBanco (*funcionesEstados[])(int) = {estadoDisponible, estadoNoDisponible};
+
+    printf("Bienvenido al banco\n");
+
     while (1) {
-        // Llamada a la función de estado actual
-        estadoActual = funcionesEstados[estadoActual](contadorPersonas);
+        printf("Actualmente hay %d personas en el banco.\n", contadorPersonas);
 
-        // Simular la entrada/salida de personas con el rele
-        if (LEER_SENSOR_ENTRADA) {
-            _delay_ms(50);  // delay
-            if (LEER_SENSOR_ENTRADA) {
-                if (contadorPersonas < 30) {
-                    contadorPersonas++;
-                    _delay_ms(1000);  // Retardo para evitar múltiples incrementos
-                } else {
-                    // Manejar el caso de que el banco esté lleno
-                }
+        // Llamada a la funciÃ³n de estado actual
+        estadoActual = funcionesEstados[estadoActual](leerSensores());
+
+        // Simular la entrada/salida de personas 
+        char accion;
+        printf("Â¿Entra (I) o sale (S) una persona? (Presione 'Q' para salir): ");
+        scanf(" %c", &accion);
+
+        if (accion == 'Q' || accion == 'q') {
+            break;
+        } else if (accion == 'I' || accion == 'i') {
+            if (contadorPersonas < 30) {
+                contadorPersonas++;
+            } else {
+                printf("El banco estÃ¡ lleno, no se pueden agregar mÃ¡s personas.\n");
             }
-        }
-
-        if (LEER_SENSOR_SALIDA) {
-            _delay_ms(50);  
-            if (LEER_SENSOR_SALIDA) {
-                if (contadorPersonas > 0) {
-                    contadorPersonas--;
-                    _delay_ms(1000);  // Retardo para evitar múltiples decrementos
-                } else {
-                    // Manejar el caso de que no hay personas para salir
-                }
+        } else if (accion == 'S' || accion == 's') {
+            if (contadorPersonas > 0) {
+                contadorPersonas--;
+            } else {
+                printf("No hay personas en el banco para salir.\n");
             }
         }
     }
+
+    printf("Gracias por visitar el banco. Â¡Hasta luego!\n");
 
     return 0;
 }
