@@ -28,33 +28,3 @@ EstadoBanco estadoNoDisponible(int contadorPersonas);
 #define SENSOR_SALIDA_PORT avr_GPIO_C
 #define SENSOR_SALIDA_PIN avr_GPIO_PIN_2
 #define LEER_SENSOR_SALIDA avr_gpio_read_pin(SENSOR_SALIDA_PORT, SENSOR_SALIDA_PIN)
-
-// defino estados
-void initMicro() {
-    // Configuración de puertos y pines
-    
-}
-
-EstadoBanco estadoDisponible(int contadorPersonas) {
-    if (contadorPersonas >= 1 && contadorPersonas <= 29) {
-        // Encender el rele 
-        avr_gpio_set_pin(RELE_PORT, RELE_PIN);
-        return DISPONIBLE;
-    } else {
-        // Apagar el rele
-        avr_gpio_clear_pin(RELE_PORT, RELE_PIN);
-        return NO_DISPONIBLE;
-    }
-}
-
-EstadoBanco estadoNoDisponible(int contadorPersonas) {
-    if (contadorPersonas >= 30) {
-        // Apagar el rele
-        avr_gpio_clear_pin(RELE_PORT, RELE_PIN);
-        return NO_DISPONIBLE;
-    } else {
-        // Encender el rele
-        avr_gpio_set_pin(RELE_PORT, RELE_PIN);
-        return DISPONIBLE;
-    }
-}
