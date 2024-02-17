@@ -1,8 +1,8 @@
 #ifndef conf_H
 #define conf_H
 
-#include <avr/io.h>
-
+// Incluir la API necesaria
+#include "api_gpio.h"
 typedef enum {
     DISPONIBLE,
     NO_DISPONIBLE
