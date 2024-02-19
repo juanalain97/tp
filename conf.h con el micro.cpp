@@ -5,8 +5,8 @@ conf.h:
 // Incluir la API necesaria
 #include "api_gpio.h"
 typedef enum {
-    DISPONIBLE
-    NO_DISPONIBLE
+    DISPONIBLE     // pueden entrar y salir personas
+    NO_DISPONIBLE  // no pueden entrar personas, pero si pueden salir
 } EstadoBanco;
 
 void initMicro();
