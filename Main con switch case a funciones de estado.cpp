@@ -17,9 +17,7 @@ int main() {
             case NO_DISPONIBLE:
                 estadoActual = estadoNoDisponible(contadorPersonas);
                 break;
-            // Agregar otros casos según sea necesario
-            default:
-                break;
+    
         }
     }
 
