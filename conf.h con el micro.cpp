@@ -1,11 +1,12 @@
+conf.h:
 #ifndef conf_H
 #define conf_H
 
 // Incluir la API necesaria
 #include "api_gpio.h"
 typedef enum {
-    DISPONIBLE=0,
-    NO_DISPONIBLE=1
+    DISPONIBLE
+    NO_DISPONIBLE
 } EstadoBanco;
 
 void initMicro();
@@ -21,4 +22,3 @@ EstadoBanco estadoNoDisponible(int contadorPersonas);
 
 #define SENSOR_SALIDA_PORT avr_GPIO_C
 #define SENSOR_SALIDA_PIN avr_GPIO_PIN_B
-
