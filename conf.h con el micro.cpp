@@ -4,8 +4,8 @@
 // Incluir la API necesaria
 #include "api_gpio.h"
 typedef enum {
-    DISPONIBLE,
-    NO_DISPONIBLE
+    DISPONIBLE=0,
+    NO_DISPONIBLE=1
 } EstadoBanco;
 
 void initMicro();
@@ -18,8 +18,7 @@ EstadoBanco estadoNoDisponible(int contadorPersonas);
 // Definiciones de puertos para los pines de sensores
 #define SENSOR_ENTRADA_PORT avr_GPIO_C
 #define SENSOR_ENTRADA_PIN avr_GPIO_PIN_A
-#define LEER_SENSOR_ENTRADA avr_gpio_read_pin(SENSOR_ENTRADA_PORT, SENSOR_ENTRADA_PIN)
 
 #define SENSOR_SALIDA_PORT avr_GPIO_C
 #define SENSOR_SALIDA_PIN avr_GPIO_PIN_B
-#define LEER_SENSOR_SALIDA avr_gpio_read_pin(SENSOR_SALIDA_PORT, SENSOR_SALIDA_PIN)
+
