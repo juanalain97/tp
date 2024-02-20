@@ -1,23 +1,23 @@
+include <stdio.h>
 #include "conf.h"
-#include "estados.h"
+#include "estados.c"
 
 int main() {
-    // Inicializar el microcontrolador
-    initMicro();
-
-    int contadorPersonas = 0;
     EstadoBanco estadoActual = DISPONIBLE;
+    int contadorPersonas = 0;
+
+    // Inicializar el microcontrolador
+    init_mcu();
 
     while (1) {
         // Lógica para actualizar el estado actual del banco
         switch (estadoActual) {
             case DISPONIBLE:
-                estadoActual = estadoDisponible(contadorPersonas);
+                estadoActual = estadoDisponible(&contadorPersonas);
                 break;
             case NO_DISPONIBLE:
-                estadoActual = estadoNoDisponible(contadorPersonas);
+                estadoActual = estadoNoDisponible(&contadorPersonas);
                 break;
-    
         }
     }
 
