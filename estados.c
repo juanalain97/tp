@@ -13,28 +13,21 @@ EstadoBanco estadoDisponible(int *contadorPersonas) {
         RELE = 1; // Abrir la puerta
         return DISPONIBLE;
     } else {
-        // Lógica para el estado no disponible
-        RELE = 0; // Mantener la puerta cerrada
         return NO_DISPONIBLE;
     }
 }
 
 EstadoBanco estadoNoDisponible(int *contadorPersonas) {
-    if (*contadorPersonas < 30) {
-        // Lógica para el estado disponible
-        if (SENSOR_IN) {
-            (*contadorPersonas)++;
-        } else if (SENSOR_OUT) {
-            if (*contadorPersonas > 0) {
-                (*contadorPersonas)--;
-            }
-        }
-        RELE = 1; // Abrir la puerta
-        return DISPONIBLE;
+    if (*contadorPersonas >= 30) {
+         if (SENSOR_OUT) {        
+            (*contadorPersonas)--;
+            return DISPONIBLE;            
+        } else {
+           RELE = 0; // Abrir la puerta
+           return NO_DISPONIBLE;
+         }
     } else {
-        // Lógica para el estado no disponible
-        RELE = 0; // Mantener la puerta cerrada
-        return NO_DISPONIBLE;
+        return DISPONIBLE;
     }
 }
 
