@@ -1,6 +1,4 @@
-
 #include "conf.h"
-
 
 int main() {
     EstadoBanco estadoActual = DISPONIBLE;
