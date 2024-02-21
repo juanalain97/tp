@@ -2,8 +2,11 @@ conf.h:
     
 #ifndef CONF_H
 #define CONF_H
-
-#include "mylib.h"
+typedef enum {DISPONIBLE,
+NO_DISPONIBLE
+} EstadoBanco ;
+EstadoBanco estadoDisponible(int *contadorPersonas);
+EstadoBanco estadoNoDisponible(int *contadorPersonas); 
 
 // Definiciones de puertos para el Rele que abre la puerta
 #define RELE_PORT avr_GPIO_C
